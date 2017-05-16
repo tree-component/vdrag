@@ -1,9 +1,8 @@
 {
-  "name": "draggable-example",
+  "name": "draggable-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "desmaisons_david <desmaisons_david@hotmail.com>",
-  "private": true,
+  "author": "gitjcc",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
@@ -16,6 +15,7 @@
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-preset-es2015": "^6.0.0",
@@ -24,6 +24,10 @@
     "chalk": "^1.1.3",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.25.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-html": "^2.0.3",
+    "eslint-plugin-import": "^2.2.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
