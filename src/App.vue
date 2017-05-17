@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import xDraggable from './components/Draggable.vue';
+import xDraggable from './components/xDraggable.vue';
 
 export default {
   name: 'app', components: { xDraggable },
