@@ -22,7 +22,7 @@
               <span class="button" v-else @click="expand(bbb,true)">展开</span>
             </div>
             <draggable class="draggable" v-show="bbb.expand" :options="{group:bbb.group}" @start="isDragging=true" @end="isDragging=false">
-              <div class="dragItem" v-for="ccc in bbb.children"  :class="ccc.style" >
+              <div class="dragItem" v-for="ccc in bbb.children" :class="ccc.style">
                 <span>
                   <i class="drag-item-checkbox fa" :class="ccc.checked ? 'fa-check-square-o' : 'fa-square-o'" @click="checkItem(ccc)"></i>
                   {{ccc.name}}
@@ -161,6 +161,9 @@ export default {
   border: 1px solid #666;
   background: #4285F4;
   cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
 }
 
 .drag-item-block {
