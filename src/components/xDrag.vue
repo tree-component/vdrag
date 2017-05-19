@@ -1,25 +1,25 @@
 <template>
   <div class="drag-root">
     <div class="drag-title">{{model.text}}</div>
-    <draggable class="drag-group-1" v-model="model.children" :options="{group:model.group}" @>
+    <draggable class="drag-group-1" v-model="model.children" :options="{group:model.group}" :move="onMove" @start="isDragging=true" @end="isDragging=false">
       <div class="drag-item-1" v-for="aaa in model.children">
         <div class="drag-text-1">
           <i class="drag-item-checkbox fa" :class="aaa.checked ? 'fa-check-square-o' : 'fa-square-o'" @click="checkItem(aaa)"></i>
           {{aaa.text}}
           <div class="buttons">
             <!--<span class="button" v-if="aaa.checked" @click="changeAll(aaa,false)">取消全选</span>
-                  <span class="button" v-else @click="changeAll(aaa,true)">全选</span>-->
+                    <span class="button" v-else @click="changeAll(aaa,true)">全选</span>-->
             <span class="button" v-if="aaa.expand" @click="expand(aaa,false)">收起</span>
             <span class="button" v-else @click="expand(aaa,true)">展开</span>
           </div>
         </div>
-        <draggable class="drag-group-2" v-show="aaa.expand" :options="{group: aaa.group}">
+        <draggable class="drag-group-2" v-show="aaa.expand" :options="{group: aaa.group}" :move="onMove" @start="isDragging=true" @end="isDragging=false">
           <div class="drag-item-2" v-for="bbb in aaa.children" :class="bbb.style">
             <div class="drag-text-2">
               <i class="drag-item-checkbox fa" :class="bbb.checked ? 'fa-check-square-o' : 'fa-square-o'" @click="checkItem(bbb)"></i>
               {{bbb.text}}
             </div>
-            <draggable class="drag-group-3" v-show="bbb.expand" :options="{group:bbb.group}">
+            <draggable class="drag-group-3" v-show="bbb.expand" :options="{group:bbb.group}" :move="onMove" @start="isDragging=true" @end="isDragging=false">
               <div class="drag-item-3" v-for="ccc in bbb.children">
                 <span class="drag-text-3">
                   <i class="drag-item-checkbox fa" :class="ccc.checked ? 'fa-check-square-o' : 'fa-square-o'" @click="checkItem(ccc)"></i>
@@ -67,6 +67,11 @@ export default {
     },
     expand(zzz, change) {
       zzz.expand = change;
+    },
+    onMove({ relatedContext, draggedContext }) {
+      const relatedElement = relatedContext.element;
+      const draggedElement = draggedContext.element;
+      return (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
     },
   },
 };
