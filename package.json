@@ -1,12 +1,11 @@
 {
-  "name": "draggable-vue",
+  "name": "drag-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "gitjcc",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "dist": "webpack --config ./build/webpack.dist.conf.js"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
