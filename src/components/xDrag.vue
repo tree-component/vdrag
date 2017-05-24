@@ -84,7 +84,7 @@ export default {
       this.model.children.forEach((element) => {
         childrenIds.push(element.id);
       });
-      const itemId = event.clone.id;
+      const itemId = event.clone ? event.clone.id : event.item.id;
       if (this.fn && this.fn.onSort) {
         this.fn.onSort(groupId, childrenIds, itemId);
       }
@@ -120,7 +120,7 @@ export default {
       this.model.children.forEach((element) => {
         childrenIds.push(element.id);
       });
-      const itemId = event.clone.id;
+      const itemId = event.clone ? event.clone.id : event.item.id;
       if (this.fn && this.fn.onUpdate) {
         this.fn.onUpdate(groupId, childrenIds, itemId);
       }
