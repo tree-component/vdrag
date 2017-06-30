@@ -7,4 +7,4 @@
 - 自定义拖拽规则
 
 [GitHub](https://github.com/gitjcc/vdrag/)
-[Get Started](#tree-vue)
+[Get Started](#vdrag)
