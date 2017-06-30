@@ -4,11 +4,11 @@
       <i v-show="model.checkbox" @click="checkItem(model)" class="fa" :class="model.checked ? 'fa-check-square-o' : 'fa-square-o'"></i>
       <span>{{model.text}}</span>
       <div v-show="model.button" class="buttons">
-        <span @click="changeAll(model)">{{text.changeAll}}</span>
+        <!--<span @click="changeAll(model)">{{text.changeAll}}</span>-->
         <span @click="expand(model)">{{text.expand}}</span>
       </div>
     </span>
-    <draggable v-show="model.expand" v-model="model.children" :class="'drag-group-'+model.level"
+    <draggable v-if="model.level<3" v-show="model.expand" v-model="model.children" :class="'drag-group-'+model.level"
      :options="dragOptions" :move="onMove" @sort="onSort" @add="onAdd" @remove="onRemove" @update="onUpdate">
       <x-drag v-for="children in model.children" :model="children" :options="options" :fn="fn">
       </x-drag>
