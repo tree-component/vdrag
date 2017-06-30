@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>vue-tree - 基于 vue 的树形组件</title>
+  <meta name="description" content="基于 vue 的树形组件">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="./_images/favicon.ico">
+  <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
+  <style>
+    nav.app-nav li ul {
+      min-width: 100px;
+      border: none;
+      background: inherit;
+      overflow: visible;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+<script src="//unpkg.com/markrun/dist/markrun.min.js"></script>
+<script>
+  window.$docsify = {
+    name: 'vue-tree',
+    auto2top: true,
+    coverpage: true,
+    loadSidebar: true,
+    maxLevel: 4,
+    subMaxLevel: 2,
+    loadNavbar: true,
+    mergeNavbar: true,
+    formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
+    search: {
+      noData: {
+        '/zh-cn/': '没有结果!',
+        '/zh-en/': 'No results!',
+        '/': '没有结果!',
+      },
+      paths: 'auto',
+      placeholder: {
+        '/zh-cn/': '搜索',
+        '/zh-en/': 'Search',
+        '/': '搜索',
+      },
+    },
+    plugins: [
+      function footer(hook, vm) {
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/gitjcc/tree-vue/blob/master' + vm.route.file;
+          var editHtml = '[:memo: Edit Document](' + url + ')\n';
+
+          return html +
+            '\n----\n' +
+            'Last modified {docsify-updated} ' +
+            editHtml
+        });
+      },
+    ],
+  };
+
+</script>
+
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+
+</html>
