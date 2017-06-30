@@ -29,14 +29,14 @@
 
 ## 开始
 
-- 通过 script 标签引入 js 文件
+### 通过 script 标签引入 js 文件
 
 ```html
 <script src="vue.js"></script>
 <script src="vdrag.js"></script>
 ```
 
-- HTML DOM 节点
+### HTML DOM 节点
 
 ```html
 <div id="app">
@@ -44,7 +44,7 @@
 </div>
 ```
 
-- JavaScript 代码
+### JavaScript 代码
 
 ```javascript
 //  将原始数据处理成约定的格式
