@@ -1,6 +1,6 @@
 ![logo](./_images/logo.png)
 
-# vdrag
+# vdrag <small>0.1.0</small>
 
 > 拖拽组件
 

@@ -1,6 +1,6 @@
 {
-  "name": "drag-vue",
-  "version": "1.0.0",
+  "name": "vdrag",
+  "version": "0.1.0",
   "description": "A Vue.js project",
   "author": "gitjcc",
   "scripts": {

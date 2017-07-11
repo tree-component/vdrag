@@ -1,4 +1,4 @@
-# drag-vue
+# vdrag
 
 > A Vue.js project
 
