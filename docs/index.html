@@ -26,7 +26,7 @@
 <script src="//unpkg.com/markrun/dist/markrun.min.js"></script>
 <script>
   window.$docsify = {
-    name: 'vue-tree',
+    name: 'vdrag',
     auto2top: true,
     coverpage: true,
     // loadSidebar: true,
@@ -51,7 +51,7 @@
     plugins: [
       function footer(hook, vm) {
         hook.beforeEach(function (html) {
-          var url = 'https://github.com/gitjcc/tree-vue/blob/master' + vm.route.file;
+          var url = 'https://github.com/gitjcc/vdrag/blob/master' + vm.route.file;
           var editHtml = '[:memo: Edit Document](' + url + ')\n';
 
           return html +
