@@ -1,6 +1,6 @@
 # vdrag
 
-基于 vue 的拖拽组件。
+基于 vue 的**拖拽**组件。
 
 ## 特性
 
@@ -9,36 +9,36 @@
 - 选中：选中元素
 - 固定：使元素不可拖动，优先级高于分组规则。
 - 拖拽/分组规则
-  - name: String 分组名称
-  - pull: 是否允许拖出
+  - name: **分组名称**，String
+  - pull: **是否允许拖出**
     - true: 允许拖出
     - false: 不允许拖出
-    - function: 由函数返回值确定
-  - put: 是否允许拖入
+    - Function: 由函数返回值确定
+  - put: **是否允许拖入**
     - true: 允许拖入
     - false: 不允许拖入
     - ["foo", "bar"]: 允许来自分组名称为 'foo' 和 'bar' 的元素拖入
-    - function: 由函数返回值确定
+    - Function: 由函数返回值确定
 - 回调
-  - onCheck: 响应选中/取消事件。传递 2 个参数
+  - onCheck: 响应**选中/取消**事件。传递 2 个参数
     - itemId (元素 ID，Number)
     - checked (选中状态，Bealoon)
-  - onMove: 响应拖动事件。传递 2 个参数
+  - onMove: 响应**拖拽移动**事件。传递 2 个参数
     - relatedContext (目前相对的元素，element)
     - draggedContext (被拖动的元素，element)
-  - onSort: 响应所有的 add、remove、update 事件。传递 3 个参数
+  - onSort: 响应**所有的 add、remove、update** 事件。传递 3 个参数
     - groupId ( 元素的父元素，即所在组的 ID )
     - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
     - itemId ( 被拖动元素的 ID )
-  - onAdd: 响应分组中增加元素事件。传递 3 个参数
+  - onAdd: 响应**分组中增加元素**事件。传递 3 个参数
     - groupId ( 元素的父元素，即所在组的 ID )
     - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
     - itemId ( 被增加元素的 ID ) }
-  - onRemove: 响应分组中移除元素事件，传递 3 个参数
+  - onRemove: 响应**分组中移除元素**事件，传递 3 个参数
     - groupId ( 元素的父元素，即所在组的 ID )
     - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
     - itemId ( 被移除元素的 ID )
-  - onUpdate: 响应分组内排序事件，传递 3 个参数
+  - onUpdate: 响应**分组内排序**事件，传递 3 个参数
     - groupId ( 元素的父元素，即所在组的 ID )
     - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
     - itemId ( 被拖动元素的 ID )
@@ -141,6 +141,12 @@ var app = new Vue({
   }
 });
 ```
+
+## 链接
+
+http://jsbin.com/naduvo/edit?js,output
+http://jsbin.com/rusuvot/edit?js,output
+http://jsbin.com/magogub/edit?js,output 
 
 ## License
 
