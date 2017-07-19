@@ -10,7 +10,7 @@ import xDrag from './components/xDrag.vue';
 
 let counter = 0;
 
-function geItem(parent, name, group, style) {
+function newItem(parent, name, group, style) {
   counter = counter + 1;
   const item = {
     id: counter,
@@ -43,15 +43,31 @@ function ge(str1, len1, str2, len2, str3, len3) {
   };
 
   for (let i = 0; i < len1; i++) {
-    const aaaa = geItem(out, `${str1}-${i}`, { name: 'aaaaaa', pull: true, put: ['aaaaaa'] });
+    const aaaa = newItem(out, `${str1}-${i}`, {
+      name: 'aaaaaa',
+      pull: function (to, from) {
+        // console.log('pull, to', to);
+        // console.log('pull, from', from);
+        return i % 2 === 0;
+      },
+      put: function (to, from) {
+        // console.log('put, to', to);
+        // console.log('put, from', from);
+        return i % 2 === 0;
+      },
+    });
     for (let j = 0; j < len2; j++) {
       let bbbb;
       if (j < 6) {
-        bbbb = geItem(aaaa, `${str2}-${i}-${j}`, { name: 'bbbbbb', pull: true, put: ['bbbbbb'] });
+        bbbb = newItem(aaaa, `${str2}-${i}-${j}`, {
+          name: 'bbbbbb',
+          pull: true,
+          put: true,
+        });
       } else {
-        bbbb = geItem(aaaa, `${str2}-${i}-${j} : `, { name: 'bbbbbb', pull: false, put: false }, 'drag-item-block');
+        bbbb = newItem(aaaa, `${str2}-${i}-${j} : `, { name: 'bbbbbb', pull: false, put: false }, 'drag-item-block');
         for (let k = 0; k < len3; k++) {
-          const cccc = geItem(bbbb, `${str3}-${i}-${j}-${k}`);
+          const cccc = newItem(bbbb, `${str3}-${i}-${j}-${k}`);
           bbbb.children.push(cccc);
         }
       }
@@ -63,7 +79,7 @@ function ge(str1, len1, str2, len2, str3, len3) {
 }
 
 const groupStr = ['家庭基本情况', '政治面貌', '特殊人群'];
-const objData = ge(groupStr[0], 3, groupStr[1], 9, groupStr[2], 3);
+const objData = ge(groupStr[0], 6, groupStr[1], 9, groupStr[2], 3);
 console.log(objData);
 
 const fn = {
