@@ -20,12 +20,28 @@
     - ["foo", "bar"]: 允许来自分组名称为 'foo' 和 'bar' 的元素拖入
     - function: 由函数返回值确定
 - 回调
-  - onCheck: 选中/取消事件，参数 itemId (元素 ID), checked (选中状态)
-  - onMove: 拖动事件，参数 relatedContext (目前相对的元素), draggedContext (被拖动的元素)
-  - onSort: 所有的 add、update、remove 事件，参数 groupId ( 组元素的 ID ), childrenIds ( 子元素 ID 数组 ), itemId ( 被拖动元素的 ID )。
-  - onAdd: 分组中增加元素事件，参数 groupId ( 组元素的 ID ), childrenIds ( 子元素 ID 数组 ), itemId ( 被增加元素的 ID )。
-  - onRemove: 分组中移除元素事件，参数 groupId ( 组元素的 ID ), childrenIds ( 子元素 ID 数组 ), itemId ( 被移除元素的 ID )。
-  - onUpdate: 分组内排序事件，参数 groupId ( 组元素的 ID ), childrenIds ( 子元素 ID 数组 ), itemId ( 被拖动元素的 ID )。
+  - onCheck: 响应选中/取消事件。传递 2 个参数
+    - itemId (元素 ID，Number)
+    - checked (选中状态，Bealoon)
+  - onMove: 响应拖动事件。传递 2 个参数
+    - relatedContext (目前相对的元素，element)
+    - draggedContext (被拖动的元素，element)
+  - onSort: 响应所有的 add、remove、update 事件。传递 3 个参数
+    - groupId ( 元素的父元素，即所在组的 ID )
+    - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
+    - itemId ( 被拖动元素的 ID )
+  - onAdd: 响应分组中增加元素事件。传递 3 个参数
+    - groupId ( 元素的父元素，即所在组的 ID )
+    - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
+    - itemId ( 被增加元素的 ID ) }
+  - onRemove: 响应分组中移除元素事件，传递 3 个参数
+    - groupId ( 元素的父元素，即所在组的 ID )
+    - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
+    - itemId ( 被移除元素的 ID )
+  - onUpdate: 响应分组内排序事件，传递 3 个参数
+    - groupId ( 元素的父元素，即所在组的 ID )
+    - childrenIds ( 元素的兄弟元素，即所在组的所有子元素 ID 的数组 )
+    - itemId ( 被拖动元素的 ID )
 
 ## 开始
 
@@ -47,23 +63,23 @@
 ### JavaScript 代码
 
 ```javascript
-//  将原始数据处理成约定的格式
+//  根据需求，将原始数据处理成约定的格式
 
 var tree = {
-  id: 0, // ID
-  text: 根元素, // 显示的文本
-  level: 0, // 层级
+  id: 0, // ID, 必需。
+  text: 根元素, // 显示的文本, 必需。
+  level: 0, // 层级, 必需。
   checkbox: true, // 是否显示复选框
   checked: true, // 是否被选中
   button: true, // 是否显示全选、展开按钮
   expand: true, // 是否展开
-  fixed: false, // 影响自身，是否固定、不可拖动。
-  parent: parent, // 父元素对象
+  fixed: false, // 是否固定(不可拖动)，影响自身。
+  parent: parent, // 父元素对象, 除根元素外必需。
   group: {
     name: 'freedom', // String 分组名称
     pull: true, // true|false|'clone'|function 是否允许拖出
     put: true, // true|false|["foo", "bar"]|function 是否允许拖入
-  } // 影响子元素
+  } // 拖出拖入规则，影响子元素
   children: [{
     // child
   },{
@@ -72,7 +88,7 @@ var tree = {
     // child
   },{
     // child
-  }], // 子元素对象数组，相同格式
+  }], // 子元素对象数组，格式相同
 }
 
 //  根据数据渲染组件
