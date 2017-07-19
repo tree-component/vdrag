@@ -144,9 +144,8 @@ var app = new Vue({
 
 ## 链接
 
-http://jsbin.com/naduvo/edit?js,output
-http://jsbin.com/rusuvot/edit?js,output
-http://jsbin.com/magogub/edit?js,output 
+[group 设置，普通用法](http://jsbin.com/naduvo/edit?js,output)
+[group 设置，使用函数](http://jsbin.com/rusuvot/edit?js,output)
 
 ## License
 
